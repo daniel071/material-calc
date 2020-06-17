@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="title_text">Calculator</string>
+    <string name="subtitle_text">By Daniel. P!</string>
+    <string name="button_text">Calculate!</string>
+    <string name="first_value">First Value</string>
+    <string name="second_value">Second Value</string>
+</resources>
