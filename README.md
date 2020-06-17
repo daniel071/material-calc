@@ -5,7 +5,7 @@
 Currently only adding 2 numbers is supported and the app is very limited.
 New features should come soon.
 
-
+![Screenshot](https://raw.githubusercontent.com/daniel071/material-calc/master/Screenshots/firstVersion.png)
 
 
 ## Installation
