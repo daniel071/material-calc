@@ -1,6 +1,5 @@
 # Material Calculator
-#### Material calculator is a modern calculator app designed for Android
-(No iOS version at the moment since making iOS apps are a pain)
+**Material calculator is a modern calculator app designed for Android**
 
 Currently only adding 2 numbers is supported and the app is very limited.
 New features should come soon.
