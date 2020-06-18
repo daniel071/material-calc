@@ -5,4 +5,5 @@
     <string name="button_text">Calculate!</string>
     <string name="first_value">First Value</string>
     <string name="second_value">Second Value</string>
+    <string name="typeOfMath">Select Operation</string>
 </resources>
