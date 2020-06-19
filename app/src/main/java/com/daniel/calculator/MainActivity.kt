@@ -1,12 +1,16 @@
 package com.daniel.calculator
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R.attr.label
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,6 +51,23 @@ class MainActivity : AppCompatActivity() {
 
 
         textView.setText(total.toString())
+    }
+
+    // Called when someone presses the Copy to Clipboard button
+    fun copyToClipboard(view: View) {
+        val textView = findViewById(R.id.theResult) as TextView
+        val theValue = textView.getText().toString()
+
+        val toastTextClipboard = "Copied to Clipboard"
+        val duration = Toast.LENGTH_SHORT
+
+        val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
+        toast.show()
+
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText(label.toString(), theValue)
+        clipboard.setPrimaryClip(clip)
+
     }
 
 
