@@ -11,6 +11,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.text.NumberFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,8 +50,11 @@ class MainActivity : AppCompatActivity() {
             total = firstInput / secondInput
         }
 
+        // Removes the .0 at the end if unn-needed
+        val improvedTotal = NumberFormat.getInstance().format(total)
 
-        textView.setText(total.toString())
+        // Sets the text thing (:
+        textView.setText(improvedTotal.toString())
     }
 
     // Called when someone presses the Copy to Clipboard button
