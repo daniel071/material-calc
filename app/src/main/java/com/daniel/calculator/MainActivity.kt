@@ -11,6 +11,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.Exception
 import java.text.NumberFormat
 
 
@@ -32,47 +33,56 @@ class MainActivity : AppCompatActivity() {
         // Do something in response to button
         val textView = findViewById(R.id.theResult) as TextView
 
-        val text = findViewById<View>(R.id.entryOne) as EditText
-        val firstInput = text.text.toString().toFloat()
+        try {
+            val text = findViewById<View>(R.id.entryOne) as EditText
+            val firstInput = text.text.toString().toFloat()
 
-        val textTwo = findViewById<View>(R.id.entryTwo) as EditText
-        val secondInput = textTwo.text.toString().toFloat()
+            val textTwo = findViewById<View>(R.id.entryTwo) as EditText
+            val secondInput = textTwo.text.toString().toFloat()
 
-        var total = 0f
+            var total = 0f
 
-        if (currentOperation == "Add") {
-            total = firstInput + secondInput
-        } else if (currentOperation == "Subtract") {
-            total = firstInput - secondInput
-        } else if (currentOperation == "Multiply") {
-            total = firstInput * secondInput
-        } else if (currentOperation == "Divide") {
-            total = firstInput / secondInput
+            if (currentOperation == "Add") {
+                total = firstInput + secondInput
+            } else if (currentOperation == "Subtract") {
+                total = firstInput - secondInput
+            } else if (currentOperation == "Multiply") {
+                total = firstInput * secondInput
+            } else if (currentOperation == "Divide") {
+                total = firstInput / secondInput
+            }
+
+            // Removes the .0 at the end if unn-needed
+            val improvedTotal = NumberFormat.getInstance().format(total)
+
+            // Sets the text thing (:
+            textView.setText(improvedTotal.toString())
+
+        } catch (e: Exception) {
+            val toastTextClipboard = "Please enter a Value"
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
+            toast.show()
         }
 
-        // Removes the .0 at the end if unn-needed
-        val improvedTotal = NumberFormat.getInstance().format(total)
+        // Called when someone presses the Copy to Clipboard button
+        fun copyToClipboard(view: View) {
+            val textView = findViewById(R.id.theResult) as TextView
+            val theValue = textView.getText().toString()
 
-        // Sets the text thing (:
-        textView.setText(improvedTotal.toString())
-    }
+            val toastTextClipboard = "Copied to Clipboard"
+            val duration = Toast.LENGTH_SHORT
 
-    // Called when someone presses the Copy to Clipboard button
-    fun copyToClipboard(view: View) {
-        val textView = findViewById(R.id.theResult) as TextView
-        val theValue = textView.getText().toString()
+            val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
+            toast.show()
 
-        val toastTextClipboard = "Copied to Clipboard"
-        val duration = Toast.LENGTH_SHORT
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText(label.toString(), theValue)
+            clipboard.setPrimaryClip(clip)
 
-        val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
-        toast.show()
+        }
 
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText(label.toString(), theValue)
-        clipboard.setPrimaryClip(clip)
 
     }
-
-
 }
