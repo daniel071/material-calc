@@ -1,10 +1,10 @@
 # Material Calculator
 **Material calculator is a modern calculator app designed for Android** 
 
-Currently only adding 2 numbers is supported and the app is very limited.
+Currently it supports 2 numbers and 4 operators including adding, subtracting, multiplying and dividing. You can also copy to clipboard.
 New features should come soon.
 
-![Screenshot](https://raw.githubusercontent.com/daniel071/material-calc/master/Screenshots/firstVersion.png)
+![Screenshot](https://raw.githubusercontent.com/daniel071/material-calc/master/Screenshots/secondVersion.png)
 
 
 ## Installation
