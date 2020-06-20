@@ -65,24 +65,24 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
             toast.show()
         }
+    }
 
-        // Called when someone presses the Copy to Clipboard button
-        fun copyToClipboard(view: View) {
-            val textView = findViewById(R.id.theResult) as TextView
-            val theValue = textView.getText().toString()
+    // Called when someone presses the Copy to Clipboard button
+    fun copyToClipboard(view: View) {
+        val textView = findViewById(R.id.theResult) as TextView
+        val theValue = textView.getText().toString()
 
-            val toastTextClipboard = "Copied to Clipboard"
-            val duration = Toast.LENGTH_SHORT
+        val toastTextClipboard = "Copied to Clipboard"
+        val duration = Toast.LENGTH_SHORT
 
-            val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
-            toast.show()
+        val toast = Toast.makeText(applicationContext, toastTextClipboard, duration)
+        toast.show()
 
-            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = ClipData.newPlainText(label.toString(), theValue)
-            clipboard.setPrimaryClip(clip)
-
-        }
-
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText(label.toString(), theValue)
+        clipboard.setPrimaryClip(clip)
 
     }
+
+
 }
